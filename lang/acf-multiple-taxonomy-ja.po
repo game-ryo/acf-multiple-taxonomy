@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-12-29 14:45+0900\n"
-"PO-Revision-Date: 2020-12-29 16:38+0900\n"
+"POT-Creation-Date: 2021-01-19 10:51+0900\n"
+"PO-Revision-Date: 2021-01-19 10:59+0900\n"
 "Last-Translator: game-ryo <gr@game-ryo.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: acf-multiple-taxonomy.php:4
-msgid "Advanced Custom Fields: Multiple Taxonomy"
-msgstr "Advanced Custom Fields: 複数タクソノミー"
+msgid "ACF: Multiple Taxonomy"
+msgstr "ACF: Multiple Taxonomy"
 
 #: acf-multiple-taxonomy.php:6
 msgid "A simple plugin to add a Multiple Taxonomy field. It allows you to select term(s) from multiple taxonomy."
