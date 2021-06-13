@@ -24,3 +24,9 @@ Note:
 ## Link
 
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
+
+## Changelog
+### 1.0.1
+- Remove undefined variable which caused warning in php 8.0
+### 1.0.0
+- Initial Release.

@@ -2,7 +2,7 @@
 Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
-Tested up to: 5.6
+Tested up to: 5.7.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,6 +40,9 @@ This ACF field type is compatible with:
 4. Read the description above for usage instructions
 
 == Changelog ==
+
+= 1.0.1 =
+* Remove undefined variable which caused warning in php 8.0
 
 = 1.0.0 =
 * Initial Release.
