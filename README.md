@@ -20,3 +20,7 @@ As with ACF's Taxonomy field:
 
 Note:
 - 'Create Terms' option is not supported.
+
+## Link
+
+[Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
