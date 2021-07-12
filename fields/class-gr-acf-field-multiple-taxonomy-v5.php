@@ -428,10 +428,15 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		} elseif( $field['field_type'] === 'radio' ) {
 
 			$field['type'] = 'radio';
+			$field['layout'] = 'vertical';
+			$field['other_choice'] = 0;
 
 		} elseif( $field['field_type'] === 'checkbox' ) {
 
 			$field['type'] = 'checkbox';
+			$field['layout'] = 'vertical';
+			$field['toggle'] = 0;
+			$field['allow_custom'] = 0;
 
 		}
 
