@@ -57,7 +57,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		add_action('acf/save_post', array($this, 'save_post'), 15, 1);
 
 		// do not delete!
-    parent::__construct();
+		parent::__construct();
 
 	}
 
@@ -129,7 +129,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 
 		// vars
-   	$results = array();
+		$results = array();
 
 		foreach( $field['taxonomy'] as $taxonomy ) {
 
