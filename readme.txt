@@ -41,6 +41,10 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix warnings when using radio/checkbox in php 8.0
+* Delete unnecessary css and js files
+
 = 1.0.1 =
 * Remove undefined variable which caused warning in php 8.0
 
