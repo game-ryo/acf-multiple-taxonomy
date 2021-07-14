@@ -1,3 +1,5 @@
+![banner-1544x500](https://user-images.githubusercontent.com/47914904/125542624-2fb488c8-fee9-43f2-a1bc-626cb6b0b4d6.png)
+
 # ACF: Multiple Taxonomy
 
 A simple plugin to add a Multiple Taxonomy field. It allows you to select term(s) from multiple taxonomies.
