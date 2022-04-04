@@ -407,6 +407,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 			// set choices
 			foreach( $terms as $term ) {
 
+				if ( is_array( $term ) ) continue;
 				$choices[ $term->term_id ] = $this->get_term_title( $term, $field );
 
 			}
