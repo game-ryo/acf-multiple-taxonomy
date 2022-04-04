@@ -2,7 +2,7 @@
 Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
-Tested up to: 5.7.2
+Tested up to: 5.9.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,10 @@ Note: 'Create Terms' option is not supported.
 This ACF field type is compatible with:
 * ACF 5
 
+= Link =
+
+* [Github](https://github.com/game-ryo/acf-multiple-taxonomy)
+
 == Installation ==
 
 1. Copy the `acf-multiple-taxonomy` folder into your `wp-content/plugins` folder
@@ -40,6 +44,9 @@ This ACF field type is compatible with:
 4. Read the description above for usage instructions
 
 == Changelog ==
+
+= 1.0.3 =
+* Fix warnings when invalid taxonomy is loaded
 
 = 1.0.2 =
 * Fix warnings when using radio/checkbox in php 8.0

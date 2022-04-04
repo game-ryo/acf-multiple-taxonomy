@@ -28,6 +28,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.3
+- Fix warnings when invalid taxonomy is loaded
 ### 1.0.2
 - Fix warnings when using radio/checkbox in php 8.0
 - Delete unnecessary css and js files
