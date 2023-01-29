@@ -28,6 +28,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.5
+- Fixed serious errors that had occurred with the last update. I sincerely apologize to the users.
 ### 1.0.4
 - Fixed performance issues with the grid view in the Media Library
 ### 1.0.3

@@ -13,7 +13,6 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 	// vars
 	var $save_post_terms = array();
 	var $saved_all_taxonomies = array();
-	var $saved_prepared_fields = array();
 	var $saved_taxonomy_set_choices = array();
 	var $saved_taxonomy_choices = array();
 
@@ -385,8 +384,6 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 	function prepare_field( $field ) {
 
-		if( isset( $this->saved_prepared_fields[ $field['key'] ] ) ) return $this->saved_prepared_fields[ $field['key'] ];
-
 		// get all taxonomy when no taxonomy
 		if( ! $field['taxonomy'] ) {
 
@@ -430,9 +427,6 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		$field['ajax_action'] = 'acf/fields/multiple_taxonomy/query';
 
 
-		// Keep prepared field
-		$this->saved_prepared_fields[ $field['key'] ] = $field;
-
     // Let ACF handle the rest
 		return $field;
 	}
@@ -458,7 +452,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		foreach( $taxonomies as $taxonomy ) {
 
 			if( isset( $this->saved_taxonomy_choices[ $taxonomy ] ) ) {
-				$choices = array_merge( $choices, $this->saved_taxonomy_choices[ $taxonomy ] );
+				$choices = $choices + $this->saved_taxonomy_choices[ $taxonomy ];
 				continue;
 			}
 
@@ -482,7 +476,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 			}
 
 			// set choices
-			$choices = array_merge( $choices, $taxonomy_choices );
+			$choices = $choices + $taxonomy_choices;
 			$this->saved_taxonomy_choices[ $taxonomy ] = $taxonomy_choices;
 
 		}
