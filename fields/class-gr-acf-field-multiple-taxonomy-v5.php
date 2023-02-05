@@ -322,16 +322,6 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		));
 
 
-		// ui
-		acf_render_field_setting( $field, array(
-			'label'        => __('Stylised UI','acf'),
-			'instructions' => '',
-			'name'         => 'ui',
-			'type'         => 'true_false',
-			'ui'           => 1,
-		));
-
-
 		// save_terms
 		acf_render_field_setting( $field, array(
 			'label'        => __('Save Terms','acf'),
@@ -426,6 +416,8 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		$field['ajax'] = 1;
 		$field['ajax_action'] = 'acf/fields/multiple_taxonomy/query';
 
+		// Always enable "Stylized UI" option
+		$field['ui'] = 1;
 
     // Let ACF handle the rest
 		return $field;

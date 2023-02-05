@@ -3,24 +3,23 @@ Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
 Tested up to: 6.1.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple plugin to add a Multiple Taxonomy field. It allows you to select term(s) from multiple taxonomies.
+A simple plugin to add the Multiple Taxonomy field. It allows you to select term(s) from multiple taxonomies.
 
 == Description ==
 
-- This plugin adds a Multiple Taxonomy field as one of the Advanced Custom Fields (ACF).
-- The **Taxonomy** field in ACF allows you to select term(s) from **only one taxonomy**.
+- This plugin adds the Multiple Taxonomy field as one of the Advanced Custom Fields (ACF).
+- The **Taxonomy** field in the ACF allows you to select term(s) from **only one taxonomy**.
 - The **Multiple Taxonomy** field allows you to select term(s) from **multiple taxonomies**.
 
 = Features =
 
 As with ACF's Taxonomy field:
-- You can select a term by radio buttons or drop-down list.
-- You can select terms by checkbox or drop-down list.
-- 'Stylized UI' option is supported (Search box on the drop-down list is available).
+- You can select a term by radio buttons or a drop-down list.
+- You can select terms by checkboxes or a drop-down list.
 - 'Save Terms' option is supported.
 - 'Load Terms' option is supported.
 - 'Return Value' option is supported (Term Object or Term ID).
@@ -44,6 +43,9 @@ This ACF field type is compatible with:
 4. Read the description above for usage instructions
 
 == Changelog ==
+
+= 1.0.6 =
+- Removed the Stylized UI toggle button on the field settings screen. This option is now always on.
 
 = 1.0.5 =
 * Fixed serious errors that had occurred with the last update. I sincerely apologize to the users.
