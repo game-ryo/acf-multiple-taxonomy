@@ -4,7 +4,7 @@
 Plugin Name: ACF: Multiple Taxonomy
 Plugin URI: https://github.com/game-ryo/acf-multiple-taxonomy
 Description: A simple plugin to add a Multiple Taxonomy field. It allows you to select term(s) from multiple taxonomy.
-Version: 1.0.6
+Version: 1.0.7
 Author: game-ryo
 Author URI: https://www.game-ryo.com/
 License: GPLv2 or later

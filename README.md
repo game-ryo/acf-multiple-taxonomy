@@ -27,6 +27,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.7
+- Fixes the AJAX handling compatibility issue introduced in ACF 6.3.2. Thanks to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/5).
 ### 1.0.6
 - Removed the Stylized UI toggle button on the field settings screen. This option is now always on.
 ### 1.0.5
