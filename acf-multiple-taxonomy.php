@@ -44,7 +44,7 @@ class gr_acf_plugin_multiple_taxonomy {
 		// settings
 		// - these will be passed into the field class.
 		$this->settings = array(
-			'version'	=> '1.0.6',
+			'version'	=> '1.0.7',
 			'url'		=> plugin_dir_url( __FILE__ ),
 			'path'		=> plugin_dir_path( __FILE__ )
 		);
