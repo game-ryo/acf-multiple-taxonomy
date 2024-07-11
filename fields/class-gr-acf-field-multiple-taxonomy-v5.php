@@ -80,8 +80,19 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 	function ajax_query() {
 
+		$nonce = acf_request_arg( 'nonce', '' );
+		$key   = acf_request_arg( 'field_key', '' );
+
+		// Back-compat for field settings.
+		if ( ! acf_is_field_key( $key ) ) {
+			$nonce = '';
+			$key   = '';
+		}
+
 		// validate
-		if( !acf_verify_ajax() ) die();
+		if ( ! acf_verify_ajax( $nonce, $key ) ) {
+			die();
+		}
 
 
 		// get choices
