@@ -98,7 +98,8 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
         */
 		$action = 'acf_field_select_' . $key;
 		if ( ! wp_verify_nonce( sanitize_text_field( $nonce), $action ) ) {
-			return false;
+			wp_send_json_error();
+			die();
 		}
 
 		// get choices
