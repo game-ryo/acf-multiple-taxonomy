@@ -2,8 +2,8 @@
 Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
-Tested up to: 6.5.5
-Stable tag: 1.0.7
+Tested up to: 6.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,8 +44,11 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.0.8 =
+* Fixed AJAX verification error in ACF6.3.10. Thanks again to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/6).
+
 = 1.0.7 =
-* Fixes the AJAX handling compatibility issue introduced in ACF 6.3.2. Thanks to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/5).
+* Fixed the AJAX handling compatibility issue introduced in ACF 6.3.2. Thanks to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/5).
 
 = 1.0.6 =
 * Removed the Stylized UI toggle button on the field settings screen. This option is now always on.
