@@ -90,14 +90,20 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		}
 
 		// validate
-		if ( ! acf_verify_ajax( $nonce, $key ) ) {
+		/**
+		 *  In `acf_verify_ajax()`, the action is expected to be in this format: 'acf_field_' . $this->name . '_' . $key;
+		 * Because this field is ultimately rendered by the select field class, the nonce action used to create the
+		 * nonce is tied to 'select' instead of 'multiple_taxonomy'. So, here we set the action and then run our own
+		 * validation of the nonce.
+        */
+		$action = 'acf_field_select_' . $key;
+		if ( ! wp_verify_nonce( sanitize_text_field( $nonce), $action ) ) {
+			wp_send_json_error();
 			die();
 		}
 
-
 		// get choices
 		$response = $this->get_ajax_query( $_POST );
-
 
 		// return
 		acf_send_ajax_results($response);
@@ -421,8 +427,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 		}
 
-
-    // Add choices and ajax
+        // Add choices and ajax
 		$field['choices'] = $choices;
 		$field['ajax'] = 1;
 		$field['ajax_action'] = 'acf/fields/multiple_taxonomy/query';
@@ -430,7 +435,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		// Always enable "Stylized UI" option
 		$field['ui'] = 1;
 
-    // Let ACF handle the rest
+        // Let ACF handle the rest
 		return $field;
 	}
 
