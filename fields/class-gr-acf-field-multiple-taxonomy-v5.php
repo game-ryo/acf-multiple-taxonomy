@@ -261,7 +261,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 			$results[] = $data;
 
-			if( count( $results, 1 ) >= $limit ) break;
+			if( count( $results, 1 ) >= $limit ) continue;
 
 		}
 
