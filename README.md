@@ -27,6 +27,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.9
+- Fixed AJAX issues that occurred when selecting terms. See [Github](https://github.com/game-ryo/acf-multiple-taxonomy/issues/3).
 ### 1.0.8
 - Fixed AJAX verification error in ACF6.3.10. Thanks again to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/6).
 ### 1.0.7

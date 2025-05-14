@@ -2,8 +2,8 @@
 Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
-Tested up to: 6.7
-Stable tag: 1.0.8
+Tested up to: 6.8.1
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,9 @@ This ACF field type is compatible with:
 4. Read the description above for usage instructions
 
 == Changelog ==
+
+= 1.0.9 =
+* Fixed AJAX issues that occurred when selecting terms. See [Github](https://github.com/game-ryo/acf-multiple-taxonomy/issues/3).
 
 = 1.0.8 =
 * Fixed AJAX verification error in ACF6.3.10. Thanks again to [justinmaurerdotdev](https://github.com/justinmaurerdotdev) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/6).
