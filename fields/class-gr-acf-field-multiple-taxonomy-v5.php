@@ -150,15 +150,16 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 		// vars
 		$results = array();
+		$limit = 20;
+		$global_offset = 20 * ( $options['paged'] - 1 );
+		$total_terms = 0;
+		$terms_collected = 0;
+		$all_terms = array();
 
+		// First pass: Count total terms and collect all terms
 		foreach( $field['taxonomy'] as $taxonomy ) {
-
 			$is_hierarchical = is_taxonomy_hierarchical( $taxonomy );
-			$is_pagination = ( $options['paged'] > 0 );
 			$is_search = false;
-			$limit = 20;
-			$offset = 20 * ( $options['paged'] - 1 );
-
 
 			// args
 			$args = array(
@@ -166,105 +167,81 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 				'hide_empty' => false,
 			);
 
-
-			// pagination
-			// - don't bother for hierarchial terms, we will need to load all terms anyway
-			if( $is_pagination && !$is_hierarchical ) {
-
-				$args['number'] = $limit;
-				$args['offset'] = $offset;
-
-			}
-
-
 			// search
 			if( $options['s'] !== '' ) {
-
 				// strip slashes (search may be integer)
 				$s = wp_unslash( strval( $options['s'] ) );
-
 
 				// update vars
 				$args['search'] = $s;
 				$is_search = true;
-
 			}
-
 
 			// filters
 			$args = apply_filters('acf/fields/multiple_taxonomy/query', $args, $field, $options['post_id'] );
 
-
 			// get terms
 			$terms = acf_get_terms( $args );
 
-
 			// sort into hierarchical order!
-			if( $is_hierarchical ) {
-
-				// update vars
-				$limit  = acf_maybe_get( $args, 'number', $limit );
-				$offset = acf_maybe_get( $args, 'offset', $offset );
-
-
+			if( $is_hierarchical && !$is_search ) {
 				// get parent
 				$parent = acf_maybe_get( $args, 'parent', 0 );
 				$parent = acf_maybe_get( $args, 'child_of', $parent );
 
+				// order terms
+				$ordered_terms = _get_term_children( $parent, $terms, $taxonomy );
 
-				// this will fail if a search has taken place because parents wont exist
-				if( !$is_search ) {
-
-					// order terms
-					$ordered_terms = _get_term_children( $parent, $terms, $taxonomy );
-
-
-					// check for empty array (possible if parent did not exist within original data)
-					if( !empty( $ordered_terms ) ) {
-
-						$terms = $ordered_terms;
-
-					}
-
+				// check for empty array (possible if parent did not exist within original data)
+				if( !empty( $ordered_terms ) ) {
+					$terms = $ordered_terms;
 				}
-
-
-				// fake pagination
-				if( $is_pagination ) {
-
-					$terms = array_slice( $terms, $offset, $limit );
-
-				}
-
 			}
 
-			if( count( $terms ) === 0 ) continue;
+			// Add taxonomy label to each term for sorting
+			foreach( $terms as $term ) {
+				$term->taxonomy_label = get_taxonomy( $taxonomy )->label;
+			}
 
+			$all_terms = array_merge($all_terms, $terms);
+			$total_terms += count($terms);
+		}
 
-			// get and set taxonomy label
-			$taxonomy_label = get_taxonomy( $taxonomy )->label;
-			$data = array(
-				'text' => $taxonomy_label,
-				'children' => array(),
+		// Apply global pagination
+		$paginated_terms = array_slice($all_terms, $global_offset, $limit);
+
+		// Group by taxonomy
+		$grouped_terms = array();
+		foreach( $paginated_terms as $term ) {
+			$taxonomy = $term->taxonomy;
+			$taxonomy_label = $term->taxonomy_label;
+
+			if( !isset($grouped_terms[$taxonomy]) ) {
+				$grouped_terms[$taxonomy] = array(
+					'label' => $taxonomy_label,
+					'terms' => array()
+				);
+			}
+
+			$grouped_terms[$taxonomy]['terms'][] = $term;
+		}
+
+		// Format results for select2
+		foreach( $grouped_terms as $taxonomy => $data ) {
+			$result = array(
+				'text' => $data['label'],
+				'children' => array()
 			);
 
-			// append to r
-			foreach( $terms as $term ) {
-
-				// add to json
-				$data['children'][] = array(
+			foreach( $data['terms'] as $term ) {
+				$result['children'][] = array(
 					'id'   => $term->term_id,
 					'text' => $this->get_term_title( $term, $field, $options['post_id'] )
 				);
-
 			}
 
-			$results[] = $data;
-
-			if( count( $results, 1 ) >= $limit ) continue;
-
+			$results[] = $result;
 		}
-
 
 		// vars
 		$response = array(
@@ -272,10 +249,8 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 			'limit'   => $limit,
 		);
 
-
 		// return
 		return $response;
-
 	}
 
 
