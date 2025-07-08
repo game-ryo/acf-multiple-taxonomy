@@ -236,7 +236,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 			foreach( $data['terms'] as $term ) {
 				$result['children'][] = array(
 					'id'   => $term->term_id,
-					'text' => $this->get_term_title( $term, $field, $options['post_id'] )
+					'text' => $this->get_term_title( $term, $field, $options['post_id'], true )
 				);
 			}
 
@@ -478,13 +478,19 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 	 * @param	WP_Term $term The term object.
 	 * @param	array $field The field settings.
 	 * @param	mixed $post_id The post_id being edited.
+	 * @param   boolean $unescape Should we return an unescaped post title.
 	 * @return	string
 	 */
-	function get_term_title( $term, $field, $post_id = 0 ) {
+	function get_term_title( $term, $field, $post_id = 0, $unescape = false ) {
 		$title = acf_get_term_title( $term );
 
 		// Default $post_id to current post being edited.
 		$post_id = $post_id ? $post_id : acf_get_form_data('post_id');
+
+		// unescape for select2 output which handles the escaping.
+		if ( $unescape ) {
+			$title = html_entity_decode( $title );
+		}
 
 		/**
 		 * Filters the term title.
