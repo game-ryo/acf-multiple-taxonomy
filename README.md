@@ -27,6 +27,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.10
+- Remove legacy constructor parameter to fix PHP 8.2 compatibility.
 ### 1.0.9
 - Fixed AJAX issues that occurred when selecting terms. See [Github](https://github.com/game-ryo/acf-multiple-taxonomy/issues/3).
 ### 1.0.8

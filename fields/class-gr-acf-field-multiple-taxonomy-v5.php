@@ -25,11 +25,10 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 	*  @date	5/03/2014
 	*  @since	5.0.0
 	*
-	*  @param	array $settings
 	*  @return	n/a
 	*/
 
-	function __construct( $settings ) {
+	function __construct() {
 
 		$this->name = 'multiple_taxonomy';
 		$this->label = __('Multiple Taxonomy', 'acf-multiple-taxonomy');
@@ -46,7 +45,6 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 		$this->l10n = array(
 			'error'	=> __('Error!', 'acf-multiple-taxonomy'),
 		);
-		$this->settings = $settings;
 
 		// register filter variations
 		acf_add_filter_variations( 'acf/fields/multiple_taxonomy/query',  array('name', 'key'), 1 );
@@ -796,7 +794,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 
 
 // initialize
-new gr_acf_field_multiple_taxonomy( $this->settings );
+new gr_acf_field_multiple_taxonomy();
 
 
 // class_exists check
