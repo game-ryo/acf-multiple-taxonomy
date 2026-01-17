@@ -3,7 +3,7 @@ Contributors: game-ryo
 Tags: acf, multiple, taxonomy
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,9 @@ This ACF field type is compatible with:
 4. Read the description above for usage instructions
 
 == Changelog ==
+
+= 1.0.11 =
+* Fixed double escaping issue in term titles for Select2. Thanks to [braican](https://github.com/braican) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/8).
 
 = 1.0.10 =
 * Remove legacy constructor parameter to fix PHP 8.2 compatibility.

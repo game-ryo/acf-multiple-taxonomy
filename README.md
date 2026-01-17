@@ -27,6 +27,8 @@ Note:
 [Plugin page (Wordpress.org)](https://wordpress.org/plugins/acf-multiple-taxonomy/)
 
 ## Changelog
+### 1.0.11
+- Fixed double escaping issue in term titles for Select2. Thanks to [braican](https://github.com/braican) for [his contribution](https://github.com/game-ryo/acf-multiple-taxonomy/pull/8).
 ### 1.0.10
 - Remove legacy constructor parameter to fix PHP 8.2 compatibility.
 ### 1.0.9

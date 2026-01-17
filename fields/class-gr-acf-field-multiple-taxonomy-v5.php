@@ -476,7 +476,7 @@ class gr_acf_field_multiple_taxonomy extends acf_field {
 	 * @param	WP_Term $term The term object.
 	 * @param	array $field The field settings.
 	 * @param	mixed $post_id The post_id being edited.
-	 * @param   boolean $unescape Should we return an unescaped post title.
+	 * @param   boolean $unescape Should we return an unescaped term title.
 	 * @return	string
 	 */
 	function get_term_title( $term, $field, $post_id = 0, $unescape = false ) {
